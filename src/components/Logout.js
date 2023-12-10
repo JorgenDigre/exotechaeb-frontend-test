@@ -4,7 +4,7 @@ import axios from 'axios';
 const LogoutComponent = () => {
   const handleLogout = async () => {
     try {
-      const accessToken = localStorage.getItem('accessToken');
+      const accessToken = localStorage.getItem('access_token');
       if (!accessToken) {
         // Handle scenario when access token is not found in local storage
         return;
@@ -20,7 +20,7 @@ const LogoutComponent = () => {
       console.log(response.data)
       if (response.data.status) {
         // Logout successful, clear access token from localStorage
-        localStorage.removeItem('accessToken');
+        localStorage.removeItem('access_token');
         // Handle further actions after logout (e.g., redirecting to login page, showing a message, etc.)
       }
     } catch (error) {

@@ -4,6 +4,8 @@ import LoginComponent from './components/Login';
 import LogoutComponent from './components/Logout';
 import RefreshTokenComponent from './components/Resfreshtoken';
 import GoogleLoginComponent from './components/GoogleLogin';
+import ProtectedPage from './components/ProtectedPage';
+
 
 
 function App() {
@@ -15,6 +17,9 @@ function App() {
       <LogoutComponent />
       <RefreshTokenComponent />
       <GoogleLoginComponent />
+    
+      <ProtectedPage />
+    
     </div>
   );
 }

@@ -17,7 +17,7 @@ const LoginComponent = () => {
       if (response.data.status) {
         setLoginStatus('Login successful');
         // Handle successful login - save token in local storage, redirect user, etc.
-        localStorage.setItem('accessToken', response.data.access_token);
+        localStorage.setItem('access_token', response.data.access_token);
       } else {
         setLoginStatus('Invalid email or password');
       }

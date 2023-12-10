@@ -4,7 +4,7 @@ import axios from 'axios';
 const RefreshTokenComponent = () => {
   const handleRefreshToken = async () => {
     try {
-      const accessToken = localStorage.getItem('accessToken');
+      const accessToken = localStorage.getItem('access_token');
       if (!accessToken) {
         // Handle scenario when access token is not found in local storage
         return;
@@ -20,7 +20,7 @@ const RefreshTokenComponent = () => {
       console.log(response.data)
       if (response.data.status && response.data.access_token) {
         // Update access token in local storage with the new token
-        localStorage.setItem('accessToken', response.data.access_token);
+        localStorage.setItem('access_token', response.data.access_token);
         // Handle further actions after token refresh if needed
       }
     } catch (error) {
