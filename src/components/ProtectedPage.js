@@ -2,30 +2,23 @@ import React from 'react';
 
 const ProtectedPage = () => {
   const handleAccess = () => {
-    const accessToken = localStorage.getItem('access_token');
-
-    if (accessToken) {
-      fetch('http://127.0.0.1:5001/checkout', {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          'Content-Type': 'application/json', // Adjust content type if necessary
-        },
+    // Initiate a POST request to your backend to create the Checkout Session
+    fetch('http://127.0.0.1:5001/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({}),
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Redirect user to the Checkout page using the returned session ID
+        window.location.href = data.url;
+       
       })
-        .then(response => {
-          if (response.ok) {
-            // Handle success or redirect to protected content
-            window.location.href = 'http://127.0.0.1:5001/checkout';
-          } else {
-            // Handle unauthorized access or other errors
-            console.log('Unauthorized access or error:', response.statusText);
-          }
-        })
-        .catch(error => {
-          // Handle fetch errors
-          console.error('Error:', error);
-        });
-    }
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   return (
@@ -36,6 +29,7 @@ const ProtectedPage = () => {
 };
 
 export default ProtectedPage;
+
 
 
 
