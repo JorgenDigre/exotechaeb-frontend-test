@@ -31,7 +31,7 @@ const GoogleLoginComponent = () => {
       {jwtToken ? (
         <p>Login successful! JWT token stored in local storage.</p>
       ) : (
-        <button onClick={() => window.location.href = 'https://exotechweb-backend.onrender.com//login'}>Login with Google</button>
+        <button onClick={() => window.location.href = 'https://exotechweb-backend.onrender.com/login'}>Login with Google</button>
       )}
     </div>
   );
